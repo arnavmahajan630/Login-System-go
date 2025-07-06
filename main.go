@@ -13,15 +13,20 @@ import (
 func main() {
 	// loading env
 	if err := godotenv.Load(); err != nil {
-		log.Fatal("Env missing / not laoded")
+		panic(err)
 	}
-
+	// setjwt
 	services.Setjwtkey(os.Getenv("JWT_SECRET"))
 
+	// initialize routes
 	r := gin.Default()
 	routes.SetupRoutes(r)
 
 	// server staring
-	r.Run(":", os.Getenv("PORT"))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000" // fallback default
+	}
+	r.Run(":" + port)
 	log.Println("Server is running on Port" + os.Getenv("PORT"))
 }

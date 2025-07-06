@@ -9,6 +9,7 @@ import (
 func SetupRoutes(r * gin.Engine) {
     r.POST("/signup", controllers.Signup())
 	r.POST("/login", controllers.Login())
+	r.GET("/", controllers.HelloWorld())
 
 
     protected := r.Group("/") 

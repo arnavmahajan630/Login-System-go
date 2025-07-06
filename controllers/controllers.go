@@ -19,6 +19,7 @@ import (
 var validate = validator.New()
 var userCollection = config.Opencollection("users")
 
+
 func Signup() gin.HandlerFunc{
 	return func(c * gin.Context) {
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -169,5 +170,12 @@ func GetUser() gin.HandlerFunc {
 		}
 		c.JSON(http.StatusOK, user)
 
+	}
+}
+
+
+func HelloWorld() gin.HandlerFunc {
+	return func (c * gin.Context) {
+		c.JSON(http.StatusOK, "Hello Welcome to Authentication in Golang")
 	}
 }
