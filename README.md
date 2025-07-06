@@ -29,8 +29,6 @@ login-portal-go/
 
 ## ⚙️ Features
 
-THIS PROJECT IS A PART OF GO LEARNING SERIES https://github.com/arnavmahajan630/Learn-Go
-
 ✅ Signup with validation  
 ✅ Login with JWT + refresh token  
 ✅ Hashed password storage (bcrypt)  
