@@ -40,3 +40,10 @@ func init() {
 		panic("Mongo ping failed")
 	}
 }	
+
+func Opencollection(collection  string) * mongo.Collection {
+	if Client == nil {
+		log.Fatal("MongoDb client is not initialized. connect db first")
+	}
+	return Client.Database("userdb").Collection(collection)
+}

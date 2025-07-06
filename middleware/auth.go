@@ -1,4 +1,4 @@
-package middleware
+package auth
 
 import (
 	"log"
@@ -31,6 +31,6 @@ func Authenticate() gin.HandlerFunc {
 			return 
 		}
 		c.Set("claims", claims)
-		c.Next() // we gt validated and we are ready to move to next routes
+		c.Next() // we get validated and we are ready to move to next routes
 	}
 }

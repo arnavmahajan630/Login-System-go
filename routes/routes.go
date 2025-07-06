@@ -1,8 +1,9 @@
 package routes
 
 import (
+	"github.com/arnavmahajan630/login-portal-go/controllers"
+	auth "github.com/arnavmahajan630/login-portal-go/middleware"
 	"github.com/gin-gonic/gin"
-	"github.com/gofiber/fiber/middleware"
 )
 
 func SetupRoutes(r * gin.Engine) {
@@ -11,7 +12,7 @@ func SetupRoutes(r * gin.Engine) {
 
 
     protected := r.Group("/") 
-	protected.Use(middleware.Authenticate())
+	protected.Use(auth.Authenticate())
 	{	protected.GET("/users", controllers.GetUsers())
 		protected.GET("/users/:id", controllers.GetUser())
     }
